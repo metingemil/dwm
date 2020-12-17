@@ -8,9 +8,9 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 6;       /* vertical padding of bar */
 static const int sidepad            = 7;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Mononoki Nerd Font:size=9:antialias=true:autohint=true",
-                                  		"Hack:size=8:antialias=true:autohint=true",
-                                  		"JoyPixels:size=10:antialias=true:autohint=true"
+static const char *fonts[]          = { "Mononoki Nerd Font:size=6:antialias=true:autohint=true",
+                                  	"Hack:size=8:antialias=true:autohint=true",
+                                  	"JoyPixels:size=10:antialias=true:autohint=true"
  									}; /* "monospace:size=10", "FontAwesome:size=10"*/
 static const char dmenufont[]       = "Mononoki Nerd Font:size=10";
 static const char col_gray1[]       = "#282c34"; // "#222222"; /* background color of bar */
