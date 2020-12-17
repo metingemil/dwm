@@ -9,7 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 20;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int vertpad            = 6;       /* vertical padding of bar */
 static const int sidepad            = 7;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Mononoki Nerd Font:size=8:antialias=true:autohint=true",
+static const char *fonts[]          = { "FontAwesome:size=11:antialias=true:autohint=true",
                                   	"Hack:size=8:antialias=true:autohint=true",
                                   	"JoyPixels:size=8:antialias=true:autohint=true"
  									}; /* "monospace:size=10", "FontAwesome:size=10"*/
