@@ -6,14 +6,14 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 20;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int vertpad            = 6;       /* vertical padding of bar */
 static const int sidepad            = 7;       /* horizontal padding of bar */
-static const char *fonts[]          = { "FontAwesome:size=8:antialias=true:autohint=true",
-                                  	"Hack:size=8:antialias=true:autohint=true",
-                                  	"JoyPixels:size=8:antialias=true:autohint=true"
- 									}; /* "monospace:size=10""*/
-static const char dmenufont[]       = "FontAwesome:size=10";
+static const char *fonts[]          = { "Font Awesome 5 Brands:size=12:antialias=true:autohint=true"
+					//, "Symbols Nerd Font:size=10:antialias=true:autohint=true"
+ 					//, "Liberation Mono:size=10:antialias=true:autohint=true"
+					};
+static const char dmenufont[]       = "Font Awesome 5 Brands:size=16:antialias=true:autohint=true";
 static const char col_gray1[]       = "#282c34"; // "#222222"; /* background color of bar */
 static const char col_gray2[]       = "#282c34"; //"#444444"; /* border color unfocused windows */
 static const char col_gray3[]       = "#c34d09"; //"#bbbbbb"; /* font color unfocused windows */
@@ -35,7 +35,7 @@ static const unsigned int alphas[][3]      = {
 /* tagging */
 /* in order to use these fonts install 'ttf-fonts-awesome' - maybe is needed to add 'FontAwesome:size=10'
  * in the *fonts[] */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
