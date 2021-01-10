@@ -126,6 +126,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,		XK_q,	   spawn,	   SHCMD("/home/limegch/pmenu") },
 	{ MODKEY,			XK_z,	   focusmaster,	   {0} },
 	{ MODKEY|ControlMask,           XK_c,      center,         {0} },
+	{ MODKEY|ControlMask,		XK_l,	   spawn,	   SHCMD("slock") },
 };
 
 /* button definitions */
