@@ -132,6 +132,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_z,	   focusmaster,	   {0} },
 	{ MODKEY|ControlMask,           XK_c,      center,         {0} },
 	{ MODKEY|ControlMask,		XK_l,	   spawn,	   SHCMD("slock") },
+	{ ControlMask,                  XK_space,  spawn,          SHCMD("/home/limegch/git_repositories/dmenu-emoji/dmenu-emoji.sh") },
 };
 
 /* button definitions */
