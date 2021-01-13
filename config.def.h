@@ -128,6 +128,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 	{ MODKEY|ControlMask,		XK_q,	   spawn,	   SHCMD("/home/limegch/pmenu") },
 	{ MODKEY,			XK_z,	   focusmaster,	   {0} },
 	{ MODKEY|ControlMask,           XK_c,      center,         {0} },
