@@ -8,6 +8,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 20;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int vertpad            = 6;       /* vertical padding of bar */
+static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int sidepad            = 7;       /* horizontal padding of bar */
 static const char *fonts[]          = { 
 					  "Liberation Mono:pixelsize=12:antialias=true:autohint=true"
@@ -17,7 +18,7 @@ static const char *fonts[]          = {
  					//, "Noto Color Emoji:pixelsize=10:antialias=true:autohint=true"
 					};
 static const char dmenufont[]       = {
-       					"Liberation Mono:pixelsize=12:antialias=true:autohint=true"	
+       					"Monospace:pixelsize=16:antialias=true:autohint=true"	
 					};
 static const char col_gray1[]       = "#282c34"; // "#222222"; /* background color of bar */
 static const char col_gray2[]       = "#282c34"; //"#444444"; /* border color unfocused windows */
@@ -48,10 +49,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
-	{ "vlc",      NULL,       NULL,       0,     	    1,           1,           -1 },
+	/* class      instance    title           tags mask     iscentered   isfloating   isterminal   noswallow   monitor */
+	{ "Gimp",     NULL,       NULL,           0,            0,           1,	          0,	        0,         -1 },
+	{ "Firefox",  NULL,       NULL,           1 << 8,       0,           0,           0,	       -1,         -1 },
+	{ "vlc",      NULL,       NULL,           0,            1,           1,	          0,	        0,         -1 },
+	{ "st",       NULL,       NULL,           0,            0,           0,           1,            0,         -1 },
+	{ NULL,       NULL,       "Event Tester", 0,            0,           0,           0,            1,         -1 }, /* xev */
 };
 
 /* layout(s) */
