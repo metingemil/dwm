@@ -11,14 +11,14 @@ static const int vertpad            = 6;       /* vertical padding of bar */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int sidepad            = 7;       /* horizontal padding of bar */
 static const char *fonts[]          = { 
-					  "Liberation Mono:pixelsize=12:antialias=true:autohint=true"
-					, "JoyPixels:pixelsize=12:antialias=true:autohint=true"
+					  "mononoki:pixelsize=12:antialias=true:autohint=true"
+					, "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"
 					//"Font Awesome 5 Brands:size=12:antialias=true:autohint=true"
 					//, "Symbols Nerd Font:size=10:antialias=true:autohint=true"
  					//, "Noto Color Emoji:pixelsize=10:antialias=true:autohint=true"
 					};
 static const char dmenufont[]       = {
-       					"Monospace:pixelsize=16:antialias=true:autohint=true"	
+					"mononoki:pixelsize=16:antialias=true:autohint=true"
 					};
 static const char col_gray1[]       = "#282c34"; // "#222222"; /* background color of bar */
 static const char col_gray2[]       = "#282c34"; //"#444444"; /* border color unfocused windows */
@@ -57,7 +57,7 @@ static const unsigned int alphas[][3]      = {
 /* tagging */
 /* in order to use these fonts install 'ttf-fonts-awesome' - maybe is needed to add 'FontAwesome:size=10'
  * in the *fonts[] */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -90,7 +90,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -148,11 +148,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
-	{ MODKEY|ControlMask,		XK_q,	   spawn,	   SHCMD("/home/limegch/pmenu") },
+	{ MODKEY|ControlMask,		XK_q,	   spawn,	   SHCMD("/home/metgemil/pmenu") },
 	{ MODKEY,			XK_z,	   focusmaster,	   {0} },
 	{ MODKEY|ControlMask,           XK_c,      center,         {0} },
 	{ MODKEY|ControlMask,		XK_l,	   spawn,	   SHCMD("slock") },
-	{ ControlMask,                  XK_space,  spawn,          SHCMD("/home/limegch/git_repositories/dmenu-emoji/dmenu-emoji.sh") },
+	{ ControlMask,                  XK_space,  spawn,          SHCMD("/home/metgemil/git_repos/dmenu-emoji/dmenu-emoji.sh") },
 };
 
 /* button definitions */
