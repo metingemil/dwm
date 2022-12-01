@@ -2940,7 +2940,9 @@ focusmaster(const Arg *arg)
 
 	if (selmon->nmaster < 1)
 		return;
-
+	if (!selmon->sel || (selmon->sel->isfullscreen && lockfullscreen))
+        	return;
+	
 	c = nexttiled(selmon->clients);
 
 	if (c)
