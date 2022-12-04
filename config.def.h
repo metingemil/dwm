@@ -177,7 +177,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,		XK_q,	   spawn,	   SHCMD("pmenu") },
 	{ MODKEY,			XK_z,	   focusmaster,	   {0} },
 	{ MODKEY|ControlMask,           XK_c,      center,         {0} },
-	{ MODKEY|ControlMask,		XK_l,	   spawn,	   SHCMD("slock") },
+	{ MODKEY|ControlMask,		XK_z,	   spawn,	   SHCMD("slock") },
 	{ ControlMask,                  XK_space,  spawn,          SHCMD("git_repos/dmenu-emoji/dmenu-emoji.sh") },
 };
 
