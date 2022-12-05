@@ -67,7 +67,7 @@
 #define TTEXTW(X)               (drw_fontset_getwidth(drw, (X)))
 
 #define STATUSLENGTH            256
-#define DWMBLOCKSLOCKFILE       "/tmp/dwmblocks.pid"
+#define DWMBLOCKSLOCKFILE       "/var/local/dwmblocks/dwmblocks.pid"
 #define DELIMITERENDCHAR        10
 #define LSPAD                   (lrpad / 2) /* padding on left side of status text */
 #define RSPAD                   (lrpad / 2) /* padding on right side of status text */
@@ -2279,23 +2279,21 @@ sigdwmblocks(const Arg *arg)
         fl.l_whence = SEEK_SET;
         fl.l_start = 0;
         fl.l_len = 0;
-        if (fd == -1) {
-                if ((fd = open(DWMBLOCKSLOCKFILE, O_RDONLY)) == -1)
-                        return;
-                if (fcntl(fd, F_GETLK, &fl) == -1 || fl.l_type == F_UNLCK)
-                        return;
-        } else {
-                if (fcntl(fd, F_GETLK, &fl) == -1)
-                        return;
-                if (fl.l_type == F_UNLCK) {
-                        close(fd);
-                        if ((fd = open(DWMBLOCKSLOCKFILE, O_RDONLY)) == -1)
-                                return;
-                        fl.l_type = F_WRLCK;
-                        if (fcntl(fd, F_GETLK, &fl) == -1 || fl.l_type == F_UNLCK)
-                                return;
-                }
+
+        if (fd != -1) {
+                if (fcntl(fd, F_GETLK, &fl) != -1 && fl.l_type == F_WRLCK)
+                        goto signal;
+                close(fd);
+                fl.l_type = F_WRLCK;
         }
+        if ((fd = open(DWMBLOCKSLOCKFILE, O_RDONLY | O_CLOEXEC)) == -1)
+                return;
+        if (fcntl(fd, F_GETLK, &fl) == -1 || fl.l_type != F_WRLCK) {
+                close(fd);
+                fd = -1;
+                return;
+        }
+signal:
         sv.sival_int = (dwmblockssig << 8) | arg->i;
         sigqueue(fl.l_pid, SIGRTMIN, sv);
 }
